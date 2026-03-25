@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultravox Calls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .call-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .call-title {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .call-summary, .call-details {
+            margin-top: 10px;
+            color: #555;
+        }
+        .call-details p {
+            margin: 5px 0;
+        }
+        .call-summary {
+            font-style: italic;
+        }
+        .call-summary,
+        .call-details {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ultravox Call Records</h1>
+
+    {% for call in calls %}
+        <div class="call-container">
+            <div class="call-title">
+                <strong>Call ID:</strong> {{ call.callId }}
+            </div>
+            <div class="call-summary">
+                <strong>Summary:</strong> {{ call.shortSummary }}
+            </div>
+            <div class="call-details">
+                <p><strong>Client Version:</strong> {{ call.clientVersion }}</p>
+                <p><strong>Created:</strong> {{ call.created }}</p>
+                <p><strong>End Reason:</strong> {{ call.endReason }}</p>
+                <p><strong>Ended:</strong> {{ call.ended }}</p>
+                <p><strong>First Speaker:</strong> {{ call.firstSpeaker }}</p>
+                <p><strong>Language Hint:</strong> {{ call.languageHint or "Not Available" }}</p>
+                <p><strong>Recording Enabled:</strong> {{ call.recordingEnabled }}</p>
+            </div>
+            <div class="call-summary">
+                <strong>Detailed Summary:</strong> {{ call.summary }}
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>

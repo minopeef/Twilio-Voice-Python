@@ -1,0 +1,8 @@
+{
+    "access_token": "YOUR_ZOHO_ACCESS_TOKEN",
+    "scope": "ZohoCRM.modules.ALL",
+    "api_domain": "https://www.zohoapis.com.au",
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "refresh_token": "YOUR_ZOHO_REFRESH_TOKEN"
+}
