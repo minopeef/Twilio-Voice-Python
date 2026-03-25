@@ -3,6 +3,15 @@
 Voice-Agent is an inbound AI voice agent built with Python, Flask, Twilio, Ultravox, and Zoho CRM.
 It accepts an inbound phone call, starts an Ultravox call session, captures the conversation summary via a callback endpoint, and then creates/updates a Lead in Zoho CRM.
 
+## Overview
+This project provides a working skeleton for an AI-driven inbound voice workflow:
+it receives a call from Twilio, streams the call audio into Ultravox, receives the conversation summary and transcript, and then uses that information to create a lead and log the call in Zoho CRM.
+
+Main components:
+- `app.py`: Flask server (Twilio webhook, Ultravox callback, dashboards/endpoints)
+- `crm.py`: Zoho CRM integration (OAuth token handling, Lead creation, call logging)
+- `calls.html`: Template used to display Ultravox call records
+
 ## How it works (high level)
 1. Twilio sends an HTTP POST to the Flask endpoint `POST /incoming` when a call arrives.
 2. The server creates an Ultravox call session and responds with TwiML that connects the call audio stream to Ultravox.
